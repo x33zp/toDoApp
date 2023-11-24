@@ -1,7 +1,9 @@
-/*
-Challenge:
-Make it so that when you click the 'Add to cart' button, whatever is written in the input field should be console logged.
-*/
+import {
+    add
+} from "./functions.js"
+
+// Challenge: Make sure that add is working by console logging add with two number arguments.
+console.log(add(2, 3))
 
 const appSettings = {
     databaseURL: "https://playground-5f5ea-default-rtdb.firebaseio.com/"
