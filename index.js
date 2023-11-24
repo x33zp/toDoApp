@@ -2,7 +2,8 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import {
-    getDatabase
+    getDatabase,
+    ref
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 
@@ -12,6 +13,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const dataBase = getDatabase(app)
+const movieInDB = ref(dataBase, "movies")
 
 let inputFieldEl = document.querySelector("#input-field")
 const addBtnEl = document.querySelector("#add-button")
