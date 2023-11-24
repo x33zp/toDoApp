@@ -1,6 +1,6 @@
 import {
-    add
-} from "./functions.js"
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 
 // Challenge: Make sure that add is working by console logging add with two number arguments.
 console.log(add(2, 3))
