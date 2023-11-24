@@ -3,7 +3,8 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
 import {
     getDatabase,
-    ref
+    ref,
+    push
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 
@@ -20,6 +21,8 @@ const addBtnEl = document.querySelector("#add-button")
 
 addBtnEl.addEventListener("click", () => {
     let inputValue = inputFieldEl.value
+
+    push(movieInDB, inputValue)
 
     console.log(inputValue)
 })
