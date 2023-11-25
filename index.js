@@ -53,9 +53,9 @@ const appendItemToListEl = (item) => {
 
     newEl.textContent = itemValue
 
-    // Challenge: Attach an event listener to newEl and make it so you console log the id of the item when it's pressed.
     newEl.addEventListener("click", () => {
-        console.log(itemID)
+        // Challenge: Make a let variable called 'exactLocationOfItemInDB' and set it equal to ref(database, something) where you substitute something with the code that will give you the exact location of the item in question.
+        let exactLocationOftaskListInDB = ref(database, `taskList/${itemID}`)
     })
 
     listEl.append(newEl)
