@@ -30,15 +30,21 @@ addButtonEl.addEventListener("click", () => {
 })
 
 onValue(taskListInDB, function (snapshot) {
-    let snapshotValue = snapshot.val()
-    let taskListArray = Object.entries(snapshotValue)
+    // Challenge: Change the onValue code so that it uses snapshot.exists() to show items when there are items in the database and if there are not displays the text 'No items here... yet'.
 
-    clearlistEl()
+    if (snapshot.exists()) {
+        let snapshotValue = snapshot.val()
+        let taskListArray = Object.entries(snapshotValue)
 
-    for (let i = 0; i < taskListArray.length; i++) {
-        let taskList = taskListArray[i]
+        clearlistEl()
 
-        appendItemToListEl(taskList)
+        for (let i = 0; i < taskListArray.length; i++) {
+            let taskList = taskListArray[i]
+
+            appendItemToListEl(taskList)
+        }
+    } else {
+        listEl.innerHTML = "No items here... yet."
     }
 })
 
