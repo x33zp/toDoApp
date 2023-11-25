@@ -28,23 +28,11 @@ addButtonEl.addEventListener("click", () => {
     clearInput()
 })
 
-/*
-Challenge:
-Call the onValue function with
-shoppingListInDB as the first argument and
-function(snapshot) {} as the second argument
-*/
-
 onValue(taskListInDB, function (snapshot) {
-    // Challenge: Use Object.values() to convert snapshot.val() from an Object to an Array. Create a variable for this.
     let taskListArray = Object.values(snapshot.val())
-
-    // Challenge: Write a for loop to iterate on itemsArray and console log each item
     for (let i = 0; i < taskListArray.length; i++) {
         let taskList = taskListArray[i]
         console.log(taskList)
-
-        // Challenge: Use the appendItemToShoppingListEl(itemValue) function inside of the for loop to append item to the shopping list element for each iteration.
         appendItemToListEl(taskList)
     }
 
