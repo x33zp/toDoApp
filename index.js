@@ -37,13 +37,10 @@ onValue(taskListInDB, function (snapshot) {
     for (let i = 0; i < taskListArray.length; i++) {
         let taskList = taskListArray[i]
 
-        // Challenge: Make two let variables:
-        // currentItemID and currentItemValue and use currentItem to set both of
-        // them equal to the correct values.
         let taskListID = taskList[0]
         let taskListValue = taskList[1]
 
-        appendItemToListEl(taskListValue)
+        appendItemToListEl(taskList)
     }
 
     console.log(taskListArray)
@@ -53,8 +50,15 @@ const clearlistEl = () => {
     listEl.innerHTML = ""
 }
 
-const appendItemToListEl = (itemValue) => {
-    listEl.innerHTML += `<li>${itemValue}</li>`
+const appendItemToListEl = (item) => {
+    let itemID = item[0]
+    let itemValue = item[1]
+
+    let newEl = document.createElement("li")
+
+    newEl.textContent = itemValue
+
+    listEl.append(newEl)
 }
 
 const clearInput = () => {
