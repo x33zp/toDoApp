@@ -4,7 +4,8 @@ import {
 import {
     getDatabase,
     ref,
-    push
+    push,
+    onValue
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
@@ -13,7 +14,7 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const taskListInDB = ref(database, "taskList")
+const booksInDB = ref(database, "books")
 
 const inputFieldEl = document.querySelector("#input-field")
 const addButtonEl = document.querySelector("#add-button")
@@ -22,12 +23,21 @@ const listEl = document.querySelector("#shopping-list")
 addButtonEl.addEventListener("click", () => {
     let inputValue = inputFieldEl.value
 
-    push(taskListInDB, inputValue)
-    appendItemToListEl(inputValue)
-    clearInput()
+    // push(taskListInDB, inputValue)
+    onValue(booksInDB, function (snapshot) {
+        let booksArray = Object.values(snapshot.val())
+        // Challenge: Write a for loop where you console log each book.
+        for (let i = 0; i < booksArray.length; i++) {
+            let currentBook = booksArray[i]
+            appendItemToListEl(currentBook)
+        }
+        // console.log(booksArray)
+    })
+    // appendItemToListEl(inputValue)
+    // clearInput()
 })
 
-const appendItemToListEl = (itemValue) => {
+function appendItemToListEl(itemValue) {
     listEl.innerHTML = `<li>${itemValue}</li>`
 }
 
