@@ -24,12 +24,15 @@ addButtonEl.addEventListener("click", () => {
     let inputValue = inputFieldEl.value
 
     push(taskListInDB, inputValue)
-    appendItemToListEl(inputValue)
+    // appendItemToListEl(inputValue)
     clearInput()
 })
 
 onValue(taskListInDB, function (snapshot) {
     let taskListArray = Object.values(snapshot.val())
+
+    clearlistEl()
+
     for (let i = 0; i < taskListArray.length; i++) {
         let taskList = taskListArray[i]
         console.log(taskList)
@@ -38,6 +41,10 @@ onValue(taskListInDB, function (snapshot) {
 
     console.log(taskListArray)
 })
+
+const clearlistEl = () => {
+    listEl.innerHTML = ""
+}
 
 const appendItemToListEl = (itemValue) => {
     listEl.innerHTML += `<li>${itemValue}</li>`
