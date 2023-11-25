@@ -37,9 +37,6 @@ onValue(taskListInDB, function (snapshot) {
     for (let i = 0; i < taskListArray.length; i++) {
         let taskList = taskListArray[i]
 
-        let taskListID = taskList[0]
-        let taskListValue = taskList[1]
-
         appendItemToListEl(taskList)
     }
 
