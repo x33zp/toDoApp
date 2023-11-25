@@ -39,8 +39,6 @@ onValue(taskListInDB, function (snapshot) {
 
         appendItemToListEl(taskList)
     }
-
-    console.log(taskListArray)
 })
 
 const clearlistEl = () => {
@@ -54,6 +52,11 @@ const appendItemToListEl = (item) => {
     let newEl = document.createElement("li")
 
     newEl.textContent = itemValue
+
+    // Challenge: Attach an event listener to newEl and make it so you console log the id of the item when it's pressed.
+    newEl.addEventListener("click", () => {
+        console.log(itemID)
+    })
 
     listEl.append(newEl)
 }
