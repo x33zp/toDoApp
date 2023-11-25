@@ -17,12 +17,20 @@ const taskListInDB = ref(database, "taskList")
 
 const inputFieldEl = document.querySelector("#input-field")
 const addButtonEl = document.querySelector("#add-button")
-const ulEl = document.querySelector("#shopping-list")
+const listEl = document.querySelector("#shopping-list")
 
 addButtonEl.addEventListener("click", () => {
     let inputValue = inputFieldEl.value
 
     push(taskListInDB, inputValue)
-    ulEl.innerHTML = `<li>${inputValue}</li>`
-    inputFieldEl.value = ""
+    appendItemToListEl(inputValue)
+    clearInput()
 })
+
+const appendItemToListEl = (itemValue) => {
+    listEl.innerHTML = `<li>${itemValue}</li>`
+}
+
+const clearInput = () => {
+    inputFieldEl.value = ""
+}
