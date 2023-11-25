@@ -5,7 +5,8 @@ import {
     getDatabase,
     ref,
     push,
-    onValue
+    onValue,
+    remove
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
@@ -54,8 +55,9 @@ const appendItemToListEl = (item) => {
     newEl.textContent = itemValue
 
     newEl.addEventListener("click", () => {
-        // Challenge: Make a let variable called 'exactLocationOfItemInDB' and set it equal to ref(database, something) where you substitute something with the code that will give you the exact location of the item in question.
         let exactLocationOftaskListInDB = ref(database, `taskList/${itemID}`)
+        // Challenge: Use the remove function to remove the item from the database
+        remove(exactLocationOftaskListInDB)
     })
 
     listEl.append(newEl)
