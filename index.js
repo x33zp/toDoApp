@@ -29,14 +29,21 @@ addButtonEl.addEventListener("click", () => {
 })
 
 onValue(taskListInDB, function (snapshot) {
-    let taskListArray = Object.values(snapshot.val())
+    let snapshotValue = snapshot.val()
+    let taskListArray = Object.entries(snapshotValue)
 
     clearlistEl()
 
     for (let i = 0; i < taskListArray.length; i++) {
         let taskList = taskListArray[i]
-        console.log(taskList)
-        appendItemToListEl(taskList)
+
+        // Challenge: Make two let variables:
+        // currentItemID and currentItemValue and use currentItem to set both of
+        // them equal to the correct values.
+        let taskListID = taskList[0]
+        let taskListValue = taskList[1]
+
+        appendItemToListEl(taskListValue)
     }
 
     console.log(taskListArray)
