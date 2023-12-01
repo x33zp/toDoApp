@@ -30,6 +30,7 @@ input {
     text-align: center;
     font-family: 'Rubik', sans-serif;
     margin: 10px 0;
+    text-transform: capitalize;
 }
 
 button {
@@ -63,6 +64,7 @@ ul li {
     border-radius: 8px;
     flex-grow: 1;
     text-align: center;
+    text-transform: capitalize;
     background-color: #FFFDF8;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2)
 }
